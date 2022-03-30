@@ -24,6 +24,7 @@ public class DeckOfCards {
 
 
     public static void toshuffle(ArrayList<String> cardsDeck) {
+        System.out.println("shuffling the cards before Distribution");
         ArrayList<String> temp = new ArrayList<String>();
         while (!cardsDeck.isEmpty()) {
             int loc = (int) (Math.random() * cardsDeck.size());
@@ -31,6 +32,7 @@ public class DeckOfCards {
             cardsDeck.remove(loc);
         }
         cardsDeck = temp;
+        toDisplay(cardsDeck);
     }
 
     private static void toDisplay(ArrayList<String> cardsDeck) {
@@ -46,6 +48,7 @@ public class DeckOfCards {
         if (player >= 2 && player <= 4) {
             System.out.println(player + " will players will  play the game");
             sequenceOfPlay(player);
+
         } else {
             System.out.println("please enter number of players in the Range");
             this.noOfPlayers();
@@ -55,6 +58,7 @@ public class DeckOfCards {
     public void sequenceOfPlay(int player) {
         for (int i = 1; i < player; i++) {
             System.out.println("Player " + i + " Getting card:");
+            toshuffle(cardsDeck);
         }
     }
 
